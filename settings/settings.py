@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-5c4yb@cvwrp8825gik=o0i80r=2h$+gz+o5nn8q%2-ug1jrxfw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost','194.9.70.148']
 
 
 # Application definition
@@ -111,11 +111,11 @@ WSGI_APPLICATION = 'settings.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'insta',
-        'USER': 'insta_admin',
-        'PASSWORD': 'm27qrF7a9hH',
-        'HOST': '127.0.0.1',
-        'PORT': '5432'
+        'NAME': 'test00',
+        'USER': 'user_test00',
+        'PASSWORD': 'qw1234er',
+        'HOST': 'localhost',
+        'PORT': ''
     }
 }
 
@@ -157,6 +157,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 MEDIA_URL = '/storage/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'storage/')
