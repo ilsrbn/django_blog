@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-from datetime import timedelta
 import os.path
 from pathlib import Path
 
@@ -42,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'django_filters',
-    'dj_rest_auth'
+    'dj_rest_auth',
+    'drf_yasg',
 ]
 
 REST_FRAMEWORK = {
@@ -78,11 +78,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    'http://127.0.0.1:3000',
-    'http://localhost:3000',
-    'http://192.168.0.105:3000',
-]
+CORS_ALLOW_ALL_ORIGINS = True
+
+# CORS_ALLOWED_ORIGINS = [
+#     'http://127.0.0.1:3000',
+#     'http://localhost:3000',
+#     'http://192.168.0.105:3000',
+# ]
 
 ROOT_URLCONF = 'settings.urls'
 

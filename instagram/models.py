@@ -10,11 +10,19 @@ class Profile(models.Model):
 
 class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='image/posts/%Y_%m_%d/', blank=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.author.username + ', ' + str(self.id)
+
+
+class Image(models.Model):
+    post = models.ForeignKey(Post, related_name="images", on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='images/posts/%Y_%m_%d/', blank=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.image)
 
 
 class Comment(models.Model):
@@ -29,5 +37,5 @@ class Comment(models.Model):
 
 class Like(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, related_name='likes', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
